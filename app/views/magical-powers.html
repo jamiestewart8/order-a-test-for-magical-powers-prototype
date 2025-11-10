@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% from 'back-link/macro.njk' import backLink %}
+{% from 'button/macro.njk' import button %}
+{% from 'radios/macro.njk' import radios %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "#",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/form-handler" method="post" novalidate>
+
+        {{ radios({
+          name: "hasSymptoms",
+          fieldset: {
+            legend: {
+              text: "Have you had any of the following symptoms?",
+              isPageHeading: true,
+              classes: "nhsuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "I've moved an object with my mind",
+              text: "I've moved an object with my mind"
+            },
+            {
+              value: "I've set something on fire with my mind",
+              text: "I've set something on fire with my mind"
+            },
+            {
+              value: "I keep turning invisible",
+              text: "I keep turning invisible"
+            },
+            {
+              value: "I unexpectedly teleported to Thailand",
+              text: "I unexpectedly teleported to Thailand"
+            },
+              {
+              value: "I'm not sure",
+              text: "I'm not sure"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
