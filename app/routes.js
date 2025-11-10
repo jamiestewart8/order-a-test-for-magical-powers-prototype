@@ -29,10 +29,14 @@ router.post("/magical-powers-action", (req, res) => {
   } else if (mostBotheringSymptom === "I unexpectedly teleported to Thailand") {
     // Send user to a page where they can find their NHS number
     res.redirect("/more-detail");
+      } else if (mostBotheringSymptom === "I'm thirsty for blood") {
+    // Send user to a page where they can find their NHS number
+    res.redirect("/blood-hunted");
   } else {
     // Send user back to the question page
     res.redirect("/ineligible");
   }
+  
 });
 
 module.exports = router
