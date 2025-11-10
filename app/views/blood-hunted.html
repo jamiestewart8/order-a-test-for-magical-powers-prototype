@@ -1,55 +1,14 @@
 {% extends "layout.html" %}
 
+{% from 'images/macro.njk' import image %}
+{% block content %}
 
-{% from 'panel/macro.njk' import panel %}
-{% from "summary-list/macro.njk" import summaryList %}
-
-{% from 'error-summary/macro.njk' import errorSummary %}
-
-{{ errorSummary({
-  titleText: "There is a problem",
-  descriptionText: "You are not magical",
-  errorList: [
-    {
-      text: "You are not magical",
-      href: "#example-error-1"
-    }
-  ]
+{{ image({
+  src: "images/hunted.png",
+  sizes: "(max-width: 768px) 100vw, 66vw",
+  srcset: "images/hunted.png",
+  alt: "Poster of a vampire and NHS vampire hunter. Text says 'you will be hunted'",
+  caption: "."
 }) }}
 
-{% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-
-      {{ panel({
-        titleText: "You will be hunted",
-        text: ""
-      }) }}
-
-  
-      
-
-      {{ summaryList({
-        classes: "nhsuk-summary-list--no-border",
-        rows: [
-          {
-            key: {
-              text: ""
-            },
-            value: {
-              html: siteLocationHtml
-            }
-          },
-          {
-      
-          }
-        ]
-      }) }}
-
-      <p>
-        <a href="#">Tell us about your experience using this service</a>
-      </p>
-
-    </div>
-  </div>
 {% endblock %}
