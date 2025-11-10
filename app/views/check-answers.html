@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% from 'button/macro.njk' import button %}
+{% from 'summary-list/macro.njk' import summaryList %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">Check your answers before ordering your test</h1>
+
+      
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Your symptom"
+            },
+            value: {
+              text: data.mostBotheringSymptom
+            },
+            actions: {
+              items: [
+                {
+                  href: "/magical-powers",
+                  text: "Change",
+                  visuallyHiddenText: "NHS number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "More detail about your symptoms"
+            },
+            value: {
+              text: data.detail
+            },
+            actions: {
+              items: [
+                {
+                  href: "/more-detail",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          
+        
+          }
+        ]
+      }) }}
+
+      <h2 class="nhsuk-heading-m">
+        Now send your application
+      </h2>
+
+      <p>
+        Your details will be sent to Rose Magic Practice to begin your registration.
+      </p>
+
+      <form action="/done" method="post" novalidate>
+        {{ button({
+          text: "Confirm and send"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

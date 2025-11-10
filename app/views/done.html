@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% from 'panel/macro.njk' import panel %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ panel({
+        titleText: "Order complete",
+        text: "You'll receive a magical powers kit in the next 2-3 days"
+      }) }}
+
+      
+      
+      If you need help completing your kit, you can summon your local witch or wizard.
+      
+
+      {{ summaryList({
+        classes: "nhsuk-summary-list--no-border",
+        rows: [
+          {
+            key: {
+              text: ""
+            },
+            value: {
+              html: siteLocationHtml
+            }
+          },
+          {
+      
+          }
+        ]
+      }) }}
+
+      <p>
+        <a href="#">Tell us about your experience using this service</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}
