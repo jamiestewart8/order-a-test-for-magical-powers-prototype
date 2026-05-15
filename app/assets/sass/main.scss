@@ -1,4 +1,9 @@
 // Import NHS.UK frontend library
 @import "nhsuk-frontend/dist/nhsuk";
 
-// Add your custom CSS/Sass styles below.
+.custom-yellow-box// Add your custom CSS/Sass styles below.
+ {
+  background-color: #ffffff;
+  border-top: 6px solid #ffbf47;
+  padding: 16px;
+}
